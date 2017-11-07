@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -14,16 +14,26 @@ export class AppComponent {
   boton_desabilitado = true;
   nombre = '';
 
+  items: any = [
+    {nombre: 'item1', edad : 20},
+    {nombre: 'item2', edad : 20},
+    {nombre: 'item3', edad : 22},
+    {nombre: 'item4', edad : 16},
+    {nombre: 'item5', edad : 19},
+    {nombre: 'item6', edad : 17}
+  ];
+
+
   constructor() {
-  	setTimeout(() =>{
-	  	this.boton_desabilitado = false;
-	  	this.nombre = 'Frank Malo';
-	  }, 3000)
+    setTimeout(() => {
+      this.boton_desabilitado = false;
+      this.nombre = 'Frank Malo';
+    }, 3000);
   }
 
-  //event binding
-  mostrar_nombre(){
-  	alert(this.nombre);
+  // event binding
+  mostrar_nombre() {
+    alert(this.nombre);
   }
 
 }
