@@ -15,14 +15,16 @@ export class AppComponent {
   nombre = '';
 
   items: any = [
-    {nombre: 'item1', edad : 20},
-    {nombre: 'item2', edad : 20},
-    {nombre: 'item3', edad : 22},
-    {nombre: 'item4', edad : 16},
-    {nombre: 'item5', edad : 19},
-    {nombre: 'item6', edad : 17}
+    {nombre: 'item1', edad: 20, habilitado: true, tipo: 'M'},
+    {nombre: 'item2', edad: 20, habilitado: false, tipo: 'F'},
+    {nombre: 'item3', edad: 22, habilitado: true, tipo: 'F'},
+    {nombre: 'item4', edad: 16, habilitado: false, tipo: 'M'},
+    {nombre: 'item5', edad: 19, habilitado: true, tipo: 'M'},
+    {nombre: 'item6', edad: 17, habilitado: false, tipo: 'F'}
   ];
 
+  lat = 51.678418;
+  lng = 7.809007;
 
   constructor() {
     setTimeout(() => {

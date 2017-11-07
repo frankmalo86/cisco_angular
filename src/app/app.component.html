@@ -32,6 +32,63 @@
 	</ul>
 </h2>
 
+google maps
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+
+
+
+<h2>
+	Usando ngStyle
+	<ul>
+		<ng-container *ngFor="let item of items; let i = index">
+			<li 
+				[ngStyle]="{color: (item.habilitado) ? 'red' : 'gray'}" 
+				*ngIf="item.edad >= 18"
+				[ngClass] = "{par:(i%2 == 0)}">
+				{{item.nombre}} - {{ i }}
+			</li>
+		</ng-container>
+	</ul>
+</h2>
+
+
+<h2>
+	Usando ngSwitch
+	<ul>
+		<ng-container *ngFor="let item of items; let i = index" [ngSwitch]="item.tipo" >
+			<li 
+				[ngStyle]="{color: (item.habilitado) ? 'red' : 'gray'}" 
+				*ngIf="item.edad >= 18"
+				[ngClass] = "{par:(i%2 == 0)}">
+				
+				{{item.nombre}} - {{ i }} -
+				<span *ngSwitchCase="'M'">Masculino</span>
+				<span *ngSwitchCase="'F'">Femenino</span>
+				
+			</li>
+		</ng-container>
+	</ul>
+</h2>
+
+<h2>
+	Usando directiva propia y un hot event
+	<ul>
+		<ng-container *ngFor="let item of items; let i = index" [ngSwitch]="item.tipo">
+			<a><li contar-clicks
+				[resaltar]="item.tipo"
+				[ngStyle]="{color: (item.habilitado) ? 'red' : 'gray'}" 
+				*ngIf="item.edad >= 18">
+				{{item.nombre}} - {{ i }} -
+				<span *ngSwitchCase="'M'">Masculino</span>
+				<span *ngSwitchCase="'F'">Femenino</span>
+			</li></a>
+		</ng-container>
+	</ul>
+</h2>
+
+
 <ul>
 	<li>
 		<h2>
