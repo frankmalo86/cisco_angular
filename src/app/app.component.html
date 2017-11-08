@@ -25,66 +25,68 @@
 
 <h2>
 	Usando ngFor
-	<ul>
+	<ul class="list-group">
 		<ng-container *ngFor="let item of items">
-		<li *ngIf="item.edad >= 18">{{item.nombre}}</li>
+		<li class="list-group-item" *ngIf="item.edad >= 18">{{item.nombre}}</li>
 		</ng-container>
 	</ul>
 </h2>
 
 google maps
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
+<agm-map [latitude]="lat" [longitude]="lng"> <agm-marker
+	[latitude]="lat" [longitude]="lng"></agm-marker> </agm-map>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-6">
+			<h2>
+				Usando ngStyle
+				<ul>
+					<ng-container *ngFor="let item of items; let i = index">
+					<li [ngStyle]="{color: (item.habilitado) ? 'red' : 'gray'}"
+						*ngIf="item.edad >= 18" [ngClass]="{par:(i%2 == 0)}">
+						{{item.nombre}} - {{ i }}</li>
+					</ng-container>
+				</ul>
+			</h2>
+		</div>
+		<div class="col-lg-6">
+			<h2>
+				Usando ngSwitch
+				<ul>
+					<ng-container *ngFor="let item of items; let i = index"
+						[ngSwitch]="item.tipo">
+					<li [ngStyle]="{color: (item.habilitado) ? 'red' : 'gray'}"
+						*ngIf="item.edad >= 18" [ngClass]="{par:(i%2 == 0)}">
+
+						{{item.nombre}} - {{ i }} - <span *ngSwitchCase="'M'">Masculino</span>
+						<span *ngSwitchCase="'F'">Femenino</span>
+
+					</li>
+					</ng-container>
+				</ul>
+			</h2>
+		</div>
+	</div>
+</div>
+
+
+
 
 
 
 <h2>
-	Usando ngStyle
+	Usando directiva propia y un hot event los [ ] sólo usar cuando recibe
+	parametros input
 	<ul>
-		<ng-container *ngFor="let item of items; let i = index">
-			<li 
-				[ngStyle]="{color: (item.habilitado) ? 'red' : 'gray'}" 
-				*ngIf="item.edad >= 18"
-				[ngClass] = "{par:(i%2 == 0)}">
-				{{item.nombre}} - {{ i }}
-			</li>
-		</ng-container>
-	</ul>
-</h2>
-
-
-<h2>
-	Usando ngSwitch
-	<ul>
-		<ng-container *ngFor="let item of items; let i = index" [ngSwitch]="item.tipo" >
-			<li 
-				[ngStyle]="{color: (item.habilitado) ? 'red' : 'gray'}" 
-				*ngIf="item.edad >= 18"
-				[ngClass] = "{par:(i%2 == 0)}">
-				
-				{{item.nombre}} - {{ i }} -
-				<span *ngSwitchCase="'M'">Masculino</span>
-				<span *ngSwitchCase="'F'">Femenino</span>
-				
-			</li>
-		</ng-container>
-	</ul>
-</h2>
-
-<h2>
-	Usando directiva propia y un hot event
-	<ul>
-		<ng-container *ngFor="let item of items; let i = index" [ngSwitch]="item.tipo">
-			<a><li contar-clicks
-				[resaltar]="item.tipo"
-				[ngStyle]="{color: (item.habilitado) ? 'red' : 'gray'}" 
-				*ngIf="item.edad >= 18">
-				{{item.nombre}} - {{ i }} -
-				<span *ngSwitchCase="'M'">Masculino</span>
-				<span *ngSwitchCase="'F'">Femenino</span>
-			</li></a>
-		</ng-container>
+		<ng-container *ngFor="let item of items; let i = index"
+			[ngSwitch]="item.tipo"> <a><li contar-clicks
+			[resaltar]="item.tipo"
+			[ngStyle]="{color: (item.habilitado) ? 'red' : 'gray'}"
+			*ngIf="item.edad >= 18">{{item.nombre}} - {{ i }} - <span
+				*ngSwitchCase="'M'">Masculino</span> <span *ngSwitchCase="'F'">Femenino</span>
+		</li></a> </ng-container>
 	</ul>
 </h2>
 

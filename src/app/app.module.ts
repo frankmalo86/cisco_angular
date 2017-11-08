@@ -9,7 +9,12 @@ import {FormsModule} from '@angular/forms';
 
 import {AgmCoreModule} from '@agm/core';
 import {CommonModule} from '@angular/common';
+import {Routes, RouterModule} from '@angular/router';
 
+const appRouters: Routes = [
+  {path: '', component: AppComponent},
+  {path: 'cisco', component: AppComponent}
+];
 
 
 @NgModule({
@@ -24,7 +29,8 @@ import {CommonModule} from '@angular/common';
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBYcQYDRk8EvO-vsT4-gXBCaQKA9S1h1OY'
-    })
+    }),
+    RouterModule.forRoot(appRouters)
   ],
   providers: [],
   bootstrap: [AppComponent]

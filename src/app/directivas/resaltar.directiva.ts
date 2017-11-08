@@ -14,7 +14,7 @@ export class ResaltarDirective implements OnInit {
   constructor(private elRef: ElementRef, private renderer: Renderer2){}
 
   ngOnInit() {
-    // this.renderer.setStyle(this.elRef.nativeElement, 'font-weight', 'bold');
+    this.renderer.setStyle(this.elRef.nativeElement, 'font-weight', 'bold');
     const boton = this.renderer.createElement('button');
     const text = this.renderer.createText('Presioname');
     this.renderer.appendChild(boton, text);
