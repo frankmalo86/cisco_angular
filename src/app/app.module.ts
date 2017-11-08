@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 
 
 import {AppComponent} from './app.component';
+import { DetalleComponent } from './detalle/detalle.component';
 import {ContarClicksDirective} from './directivas/contar-click.directiva';
 import {ResaltarDirective} from './directivas/resaltar.directiva';
 import {FormsModule} from '@angular/forms';
@@ -10,10 +11,12 @@ import {FormsModule} from '@angular/forms';
 import {AgmCoreModule} from '@agm/core';
 import {CommonModule} from '@angular/common';
 import {Routes, RouterModule} from '@angular/router';
+import { CiscoComponent } from './cisco/cisco.component';
 
 const appRouters: Routes = [
-  {path: '', component: AppComponent},
-  {path: 'cisco', component: AppComponent}
+  {path: '', component: CiscoComponent},
+  {path: 'cisco', component: CiscoComponent},
+  {path: 'detalle/:id', component: DetalleComponent}
 ];
 
 
@@ -21,7 +24,9 @@ const appRouters: Routes = [
   declarations: [
     AppComponent,
     ResaltarDirective,
-    ContarClicksDirective
+    ContarClicksDirective,
+    DetalleComponent,
+    CiscoComponent
   ],
   imports: [
     BrowserModule,
